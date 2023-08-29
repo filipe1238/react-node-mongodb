@@ -28,7 +28,7 @@ routerAPIv1.get("/users/:id", async (req, res) => {
         res.status(200).json(result);
     } catch (err) {
         console.error("Error:", err);
-        res.status(500).json({ error: "An error occurred" });
+        res.status(404).json({ error: "User not found" });
     }
     });
 
@@ -36,7 +36,7 @@ routerAPIv1.post("/users", async (req, res) => {
   try {
     const user = req.body;
     // validate user object, needs to have name, email and password
-    if (!user.user || !user.email || !user.password) {
+    if (!user.name || !user.email || !user.password) {
       res.status(400).json({ error: "É necessário email, nome e senha" });
       return;
     }
@@ -55,21 +55,22 @@ routerAPIv1.put("/users/:id", async (req, res) => {
       res.status(400).json({ error: "É necessário email, nome e senha" });
       return;
     }
+    //give 404 if user not found
     const result = await repository.update(req.params.id, user);
     res.status(200).json(result);
   } catch (err) {
     console.error("Error:", err);
-    res.status(500).json({ error: "An error occurred" });
+    res.status(404).json({ error: "User not found" });
   }
 });
 
 routerAPIv1.delete("/users/:id", async (req, res) => {
   try {
     const result = await repository.delete(req.params.id);
-    res.status(200).json(result);
+    res.status(204).json(result);
   } catch (err) {
     console.error("Error:", err);
-    res.status(500).json({ error: "An error occurred" });
+    res.status(404).json({ error: "User not found" });
   }
 });
 
