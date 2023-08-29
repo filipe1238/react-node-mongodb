@@ -1,6 +1,6 @@
 const express = require("express");
-const db = require("../DataBase/DB.js");
-const EventRepository = require("../DataBase/repository.js");
+const db = require("../dataBase/DB.js");
+const EventRepository = require("../dataBase/repository.js");
 
 const routerAPIv1 = express.Router();
 routerAPIv1.use(express.urlencoded({ extended: true }));
