@@ -34,6 +34,11 @@ class EventRepository {
         const result = await this.collection.deleteOne({_id: objectId});
         return result.deletedCount === 1;
     }
+
+    async deleteAll() {
+        const result = await this.collection.deleteMany({});
+        return result.deletedCount;
+    }
 }
 
 module.exports = EventRepository;
