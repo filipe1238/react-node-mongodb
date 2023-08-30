@@ -1,14 +1,20 @@
 const express = require("express");
+const cors = require("cors"); // Import the cors library
 
-// vars
 const app = express();
 const port = 3000;
 
-// routes
+// Allow all origins and methods (for development only)
+app.use(cors({
+  origin: "http://localhost:5173", // Replace with your actual origin
+  methods: "GET, POST, PUT, DELETE",
+  allowedHeaders: "Content-Type, Authorization, Range", // Add "Range" header
+  exposedHeaders: "Content-Range", // Expose Content-Range header
+}));
+
 const routerAPIv1 = require("./routes/routerAPI-v1");
 app.use("/api/v1", routerAPIv1);
 
-/* app.use(express.urlencoded({ extended: true })); */
 app.use(express.json());
 
 app.get("/", (req, res) => {
