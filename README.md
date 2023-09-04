@@ -15,9 +15,13 @@ Este projeto possui uma aplicação web desenvolvida com o stack MERN (MongoDB, 
 1. Clone o repositório.
 2. Navegue até o diretório backend: `cd backend`
 3. Instale dependências: `npm install`
-4. Configure o banco de dados MongoDB e configure a conexão em `backend/src/Database/DB.js`
+4. Configure o banco de dados MongoDB e configure a conexão em `backend/src/database/DB.js`
 5. Inicie o servidor backend: `npm start ou npm run start/dev`
-6. TODO: Navegue até o diretório frontend: `cd frontend`
+6. Navegue até o diretório frontend: `cd frontend`
+7. Instale dependências: `npm install`
+8. Inicie o servidor frontend: `npm run dev`
+9. Acesse a aplicação em `http://localhost:5173/`
+10. Usuários para acesso estão disponíveis em `src/users.json`
 
 ## Endpoints
 

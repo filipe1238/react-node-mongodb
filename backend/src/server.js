@@ -2,11 +2,11 @@ const express = require("express");
 const cors = require("cors"); // Import the cors library
 
 const app = express();
-const port = 3000;
+const port = 3000
 
-// Allow all origins and methods (for development only)
+// Allow all origins (for development only)
 app.use(cors({
-  origin: "http://localhost:5173", // Replace with your actual origin
+  origin: "*",
   methods: "GET, POST, PUT, DELETE",
   allowedHeaders: "Content-Type, Authorization, Range", // Add "Range" header
   exposedHeaders: "Content-Range", // Expose Content-Range header

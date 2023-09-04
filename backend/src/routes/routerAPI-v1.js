@@ -3,7 +3,6 @@ const db = require("../dataBase/DB.js");
 const EventRepository = require("../dataBase/repository.js");
 
 const routerAPIv1 = express.Router();
-routerAPIv1.use(express.urlencoded({ extended: true }));
 routerAPIv1.use(express.json());
 
 //create repository
@@ -46,6 +45,15 @@ routerAPIv1.get("/users", async (req, res) => {
         .json(data);
       return;
     }
+    res
+      .status(200)
+      .set({
+        "Content-Range": `users 0-${totalUsers}/${totalUsers}`,
+        "Accept-Ranges": "users",
+        "Content-Length": totalUsers,
+        "Content-Type": "application/json",
+      })
+      .json(result);
   } catch (err) {
     res.status(500).json({ message: "An error occurred" });
   }
