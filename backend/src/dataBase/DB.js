@@ -1,6 +1,7 @@
 const { MongoClient } = require('mongodb');
 const EventRepository = require('./repository');
 
+// user: root | password: root
 const uri = 'mongodb://root:root@localhost:27017';
 const client = new MongoClient(uri, { useUnifiedTopology: true });
 
@@ -22,4 +23,4 @@ function getRepository(collectionName) {
   return new EventRepository(collection);
 }
 
-module.exports = { connect, getClient };
+module.exports = { connect, getClient, getRepository };

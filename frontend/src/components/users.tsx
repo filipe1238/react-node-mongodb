@@ -45,6 +45,7 @@ export const UserEdit = () => (
     <SimpleForm>
       <TextInput disabled source="id" />
       <TextInput source="name" />
+      <TextInput source="username" />
       <TextInput source="email" />
       <TextInput source="password" />
     </SimpleForm>
@@ -55,6 +56,7 @@ export const UserCreate = () => (
   <Create title={'Create User'}>
     <SimpleForm>
       <TextInput source="name" />
+      <TextInput source="username" />
       <TextInput source="email" />
       <TextInput source="password" />
     </SimpleForm>

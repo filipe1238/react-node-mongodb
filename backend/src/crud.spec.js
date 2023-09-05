@@ -1,14 +1,14 @@
 const db = require("./dataBase/DB.js");
-const EventRepository = require("./dataBase/repository.js");
 
 describe("EventRepository", () => {
-  let repository;
+  const repository = db.getRepository("users");
 
-  beforeAll(async () => {
+
+  /* beforeAll(async () => {
     const database = db.getClient().db("testdb");
     const collection = database.collection("users");
     repository = new EventRepository(collection);
-  });
+  }); */
 
   afterAll(async () => {
     await db.getClient().close();

@@ -21,6 +21,26 @@ app.get("/", (req, res) => {
   res.send("Welcome to the MongoDB Express API");
 });
 
-app.listen(port, () => {
+const server = app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
+
+// close the listener
+const stopServer = (server) => {
+  server.close(() => {
+    console.log('Server is gracefully shutting down.');
+  });
+};
+
+// Define a route to trigger server shutdown (e.g., POST /shutdown)
+// block with cors library
+app.post('/shutdown', cors(), (req, res) => {
+  console.log('Received kill signal, shutting down gracefully');
+  stopServer(server);
+  res.send('Server is shutting down...');
+});
+
+module.exports = {
+  app,
+  stopServer,
+}
