@@ -118,4 +118,13 @@ routerAPIv1.delete("/users/:id", async (req, res) => {
   }
 });
 
+routerAPIv1.delete("/users", async (req, res) => {
+  try {
+    await repository.deleteAll();
+    res.status(200).json({ message: "All users deleted" });
+  } catch (err) {
+    res.status(500).json({ message: "An error occurred" });
+  }
+});
+
 module.exports = routerAPIv1;
