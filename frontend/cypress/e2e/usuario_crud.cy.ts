@@ -108,7 +108,5 @@ describe('Usuario CRUD', () => {
         cy.get('.MuiSnackbarContent-action > .MuiButtonBase-root').click();
         cy.contains('Teste');
     });
-
-
 });
 

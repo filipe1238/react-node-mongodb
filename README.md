@@ -8,9 +8,9 @@ Este projeto possui uma aplicação web desenvolvida com o stack MERN (MongoDB, 
 - [x] Listagem de usuários
 - [x] Edição de usuários
 - [x] Exclusão de usuários
-- [x] Testes unitários de backen: `npm run test`
+- [x] Testes unitários de backend: `npm run test`
 - [x] Testes de sistema de backend: `npm run test`
-- [ ] Testes  de frontend 
+- [x] Testes de frontend: `npm run cypress:open`
 
 
 ## Installation
